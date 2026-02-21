@@ -124,4 +124,3 @@ The system is designed around three specialized agents:
 This project is open-source and available under the MIT License.
 
 ---
-*Created with 🤖 by Antigravity*
