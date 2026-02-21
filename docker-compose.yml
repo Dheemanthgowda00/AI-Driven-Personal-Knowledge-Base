@@ -1,0 +1,27 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: services/backend/Dockerfile
+    volumes:
+      - ./data:/app/data
+      - ./services/backend:/app
+    env_file:
+      - .env
+    ports:
+      - "8001:8000"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: services/frontend/Dockerfile
+    volumes:
+      - ./services/frontend:/app
+      - ./services/backend:/backend
+      - ./data:/app/data
+    env_file:
+      - .env
+    ports:
+      - "8502:8501"
+    depends_on:
+      - backend
